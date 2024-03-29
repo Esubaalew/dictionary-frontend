@@ -1,0 +1,27 @@
+/* src/css/SearchBox.css */
+
+.search-box-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-box-container form {
+    display: flex;
+}
+
+.search-box-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+}
+
+.search-box-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}

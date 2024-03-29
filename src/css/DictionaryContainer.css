@@ -1,0 +1,23 @@
+/* src/css/DictionaryContainer.css */
+
+.definition-container {
+    margin-top: 20px;
+}
+
+.definition-container h2 {
+    color: #007bff;
+}
+
+.definition-container h3 {
+    margin-top: 10px;
+}
+
+.definition-container ul {
+    margin-left: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.definition-container ul li {
+    margin-bottom: 5px;
+}
