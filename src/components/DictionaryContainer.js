@@ -3,20 +3,27 @@
 import React, { useState } from 'react';
 import { getDefinitions } from '../api/tools';
 import SearchBox from '../components/SearchBox';
+import LoadingSpinner from '../components/LoadingSpinner';
 import './../css/DictionaryContainer.css'; 
 
 const DictionaryContainer = () => {
     const [definitions, setDefinitions] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const searchDefinitions = async (word) => {
+        setLoading(true);
         const data = await getDefinitions(word);
         setDefinitions(data);
+        setLoading(false);
     };
 
     return (
         <div className="definition-container"> {/* Corrected class name */}
             <h2>Dictionary</h2>
             <SearchBox onSearch={searchDefinitions} />
+            {loading ? (
+                <LoadingSpinner /> // Display loading spinner while waiting for search results
+            ) :(
             <div>
                 {definitions.map((definition, index) => (
                     <div key={index}>
@@ -28,7 +35,7 @@ const DictionaryContainer = () => {
                         </ul>
                     </div>
                 ))}
-            </div>
+            </div>)}
         </div>
     );
 };
