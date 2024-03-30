@@ -4,6 +4,7 @@ import React from 'react';
 import DictionaryContainer from './components/DictionaryContainer';
 import WordOfTheDay from './components/WordOfTheDay';
 import BreakComponent from './components/BreakComponent';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     <DictionaryContainer />
     <BreakComponent />
     <WordOfTheDay />
+    <Footer />
   </div>
   );
 }
