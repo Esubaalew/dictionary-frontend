@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const domain = 'https://azebness.onrender.com';
+
 export const getEntries = async (word) => {
     try {
-        const response = await axios.get(`http://localhost:8000/britannica/entries/${word}`);
+        const response = await axios.get(`${domain}/britannica/entries/${word}`);
         return response.data.entries;
     } catch (error) {
         console.error('Error fetching entries:', error);
@@ -12,7 +14,7 @@ export const getEntries = async (word) => {
 
 export const getTotalEntries = async (word) => {
     try {
-        const response = await axios.get(`http://localhost:8000/britannica/total_entries/${word}`);
+        const response = await axios.get(`${domain}/britannica/total_entries/${word}`);
         return response.data.total_entries;
     } catch (error) {
         console.error('Error fetching total entries:', error);
@@ -22,7 +24,7 @@ export const getTotalEntries = async (word) => {
 
 export const getWordOfTheDay = async () => {
     try {
-        const response = await axios.get('http://localhost:8000/britannica/word_of_the_day');
+        const response = await axios.get(`${domain}/britannica/word_of_the_day`);
         return response.data.word_of_the_day;
     } catch (error) {
         console.error('Error fetching word of the day:', error);
@@ -32,7 +34,7 @@ export const getWordOfTheDay = async () => {
 
 export const getPartsOfSpeech = async (word) => {
     try {
-        const response = await axios.get(`http://localhost:8000/britannica/speeches/${word}`);
+        const response = await axios.get(`${domain}/britannica/speeches/${word}`);
         return response.data.parts_of_speech;
     } catch (error) {
         console.error('Error fetching parts of speech:', error);
@@ -42,7 +44,7 @@ export const getPartsOfSpeech = async (word) => {
 
 export const getDefinitions = async (word) => {
     try {
-        const response = await axios.get(`http://localhost:8000/britannica/definitions/${word}`);
+        const response = await axios.get(`${domain}/britannica/definitions/${word}`);
         return response.data.definitions;
     } catch (error) {
         console.error('Error fetching definitions:', error);
