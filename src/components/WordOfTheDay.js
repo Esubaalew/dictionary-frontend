@@ -1,5 +1,3 @@
-// src/components/WordOfTheDay.js
-
 import React, { useState, useEffect } from 'react';
 import { getWordOfTheDay } from '../api/tools';
 import './../css/WordOfTheDay.css';
@@ -23,12 +21,16 @@ const WordOfTheDay = () => {
                 <>
                     {wordData.image && <img src={wordData.image.src} alt={wordData.image.alt} />}
                     <h4>{wordData.word}</h4>
-                    <p>{wordData.meanings[0].definition}</p>
-                    <ul>
-                        {wordData.meanings[0].examples.map((example, index) => (
-                            <li key={index}>{example}</li>
-                        ))}
-                    </ul>
+                    {wordData.meanings.map((meaning, index) => (
+                        <div key={index}>
+                            <p>{meaning.definition}</p>
+                            <ul>
+                                {meaning.examples.map((example, exampleIndex) => (
+                                    <li key={exampleIndex}>{example}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </>
             ) : (
                 <p>Loading...</p>
