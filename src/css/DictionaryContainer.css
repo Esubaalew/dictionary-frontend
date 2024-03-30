@@ -1,15 +1,26 @@
 /* src/css/DictionaryContainer.css */
 
 .definition-container {
-    margin-top: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f8f9fa; 
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
 
 .definition-container h2 {
     color: #007bff;
+    text-align: center; 
+    margin-bottom: 30px; 
 }
 
 .definition-container h3 {
-    margin-top: 10px;
+    color: #495057; 
+    background-color: #e9ecef; 
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-top: 20px; 
 }
 
 .definition-container ul {
@@ -19,5 +30,9 @@
 }
 
 .definition-container ul li {
+    background-color: #fff; 
     margin-bottom: 5px;
+    padding: 10px; 
+    border-left: 3px solid #007bff; 
+    border-radius: 5px; 
 }

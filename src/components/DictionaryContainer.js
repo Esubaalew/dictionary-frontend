@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { getDefinitions } from '../api/tools';
 import SearchBox from '../components/SearchBox';
-import './../css/DictionaryContainer.css'; // Corrected import path
+import './../css/DictionaryContainer.css'; 
 
 const DictionaryContainer = () => {
     const [definitions, setDefinitions] = useState([]);
