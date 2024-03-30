@@ -43,7 +43,7 @@ const DictionaryContainer = () => {
             ) : (
             
                 <div className="welcome-message">
-                    <h2>Welcome to the Dictionary!</h2>
+                    <h2>Azeb's Dictionary!</h2>
                     <p>Type a word in the search box above to get started.</p>
                 </div>
             )}
