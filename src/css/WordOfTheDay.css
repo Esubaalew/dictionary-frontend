@@ -43,3 +43,9 @@
     max-width: 100%; 
     border-radius: 8px; 
 }
+
+.word-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
