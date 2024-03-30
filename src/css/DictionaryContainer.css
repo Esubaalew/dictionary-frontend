@@ -13,7 +13,8 @@
 .definition-container h2 {
     color: #007bff;
     text-align: center; 
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
+    font-family: "Lobster", sans-serif;
 }
 
 .definition-container h3 {
