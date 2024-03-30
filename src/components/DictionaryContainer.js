@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import { getDefinitions } from '../api/tools';
-import SearchBox from '../components/SearchBox';
-import LoadingSpinner from '../components/LoadingSpinner';
-import './../css/DictionaryContainer.css';
+import SearchBox from './SearchBox';
+import NoResults from './NoResults'; 
+import LoadingSpinner from './LoadingSpinner';
+import './../css/DictionaryContainer.css'; 
 
 const DictionaryContainer = () => {
     const [definitions, setDefinitions] = useState([]);
@@ -12,31 +13,30 @@ const DictionaryContainer = () => {
 
     const searchDefinitions = async (word) => {
         setLoading(true);
-        const data = await getDefinitions(word);
+        const data = await getDefinitions(word) || [];
         setDefinitions(data);
         setLoading(false);
     };
 
     return (
         <div className="definition-container">
+
             <SearchBox onSearch={searchDefinitions} />
             {loading ? (
-                <LoadingSpinner /> 
+                <LoadingSpinner />
+            ) : definitions.length > 0 ? (
+                definitions.map((definition, index) => (
+                    <div key={index}>
+                        <h3>{definition.meaning}</h3>
+                        <ul>
+                            {definition.examples.map((example, index) => (
+                                <li key={index}>{example}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
             ) : (
-                <div>
-                    {definitions.map((definition, index) => (
-                        <div key={index}>
-                            <h3>{definition.meaning}</h3>
-                            <ul>
-                                {definition.examples.map((example, index) => (
-                                    <li key={index}>{example}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                    {/* Display a message if no definitions are found */}
-                    {definitions.length === 0 && <p>No definitions found.</p>}
-                </div>
+                <NoResults /> 
             )}
         </div>
     );
