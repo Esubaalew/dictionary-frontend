@@ -18,11 +18,10 @@ const DictionaryContainer = () => {
     };
 
     return (
-        <div className="definition-container"> {/* Corrected class name */}
-            <h2>Dictionary</h2>
+        <div className="definition-container">
             <SearchBox onSearch={searchDefinitions} />
             {loading ? (
-                <LoadingSpinner /> // Display loading spinner while waiting for search results
+                <LoadingSpinner /> 
             ) : (
                 <div>
                     {definitions.map((definition, index) => (

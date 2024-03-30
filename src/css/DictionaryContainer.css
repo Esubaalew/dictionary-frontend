@@ -7,6 +7,7 @@
     background-color: #f8f9fa; 
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    overflow: hidden;
 }
 
 .definition-container h2 {
@@ -35,4 +36,15 @@
     padding: 10px; 
     border-left: 3px solid #007bff; 
     border-radius: 5px; 
+}
+
+.definition-container div {
+    /* Style for individual definition cards */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    max-height: 300px; /* Set a max-height for scrolling */
 }
