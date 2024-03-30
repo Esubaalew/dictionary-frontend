@@ -12,7 +12,7 @@ const SearchBox = ({ onSearch }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (word) { // Check if there is a word to search
+        if (word) { 
             onSearch(word);
         }
     };

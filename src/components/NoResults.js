@@ -1,7 +1,7 @@
 // src/components/NoResults.js
 
 import React from 'react';
-import noResultsImage from '../assets/images/noresult.jpg'; // Make sure the import path is correct
+import noResultsImage from '../assets/images/noresult.jpg'; 
 import './../css/NoResults.css';
 
 const NoResults = () => {

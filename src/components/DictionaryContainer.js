@@ -10,11 +10,11 @@ import './../css/DictionaryContainer.css';
 const DictionaryContainer = () => {
     const [definitions, setDefinitions] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [hasSearched, setHasSearched] = useState(false); // New state to track if a search has been made
+    const [hasSearched, setHasSearched] = useState(false); 
 
     const searchDefinitions = async (word) => {
         setLoading(true);
-        setHasSearched(true); // Update state to indicate a search has occurred
+        setHasSearched(true); 
         const data = await getDefinitions(word) || [];
         setDefinitions(data);
         setLoading(false);
@@ -41,7 +41,7 @@ const DictionaryContainer = () => {
                     <NoResults />
                 )
             ) : (
-                // Display a welcome message instead of "No results" before any search is made
+            
                 <div className="welcome-message">
                     <h2>Welcome to the Dictionary!</h2>
                     <p>Type a word in the search box above to get started.</p>
