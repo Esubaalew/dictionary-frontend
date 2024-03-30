@@ -3,16 +3,18 @@
 import React, { useState } from 'react';
 import { getDefinitions } from '../api/tools';
 import SearchBox from './SearchBox';
-import NoResults from './NoResults'; 
+import NoResults from './NoResults';
 import LoadingSpinner from './LoadingSpinner';
-import './../css/DictionaryContainer.css'; 
+import './../css/DictionaryContainer.css';
 
 const DictionaryContainer = () => {
     const [definitions, setDefinitions] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [hasSearched, setHasSearched] = useState(false); // New state to track if a search has been made
 
     const searchDefinitions = async (word) => {
         setLoading(true);
+        setHasSearched(true); // Update state to indicate a search has occurred
         const data = await getDefinitions(word) || [];
         setDefinitions(data);
         setLoading(false);
@@ -20,23 +22,30 @@ const DictionaryContainer = () => {
 
     return (
         <div className="definition-container">
-
             <SearchBox onSearch={searchDefinitions} />
             {loading ? (
                 <LoadingSpinner />
-            ) : definitions.length > 0 ? (
-                definitions.map((definition, index) => (
-                    <div key={index}>
-                        <h3>{definition.meaning}</h3>
-                        <ul>
-                            {definition.examples.map((example, index) => (
-                                <li key={index}>{example}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))
+            ) : hasSearched ? (
+                definitions.length > 0 ? (
+                    definitions.map((definition, index) => (
+                        <div key={index}>
+                            <h3>{definition.meaning}</h3>
+                            <ul>
+                                {definition.examples.map((example, index) => (
+                                    <li key={index}>{example}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))
+                ) : (
+                    <NoResults />
+                )
             ) : (
-                <NoResults /> 
+                // Display a welcome message instead of "No results" before any search is made
+                <div className="welcome-message">
+                    <h2>Welcome to the Dictionary!</h2>
+                    <p>Type a word in the search box above to get started.</p>
+                </div>
             )}
         </div>
     );

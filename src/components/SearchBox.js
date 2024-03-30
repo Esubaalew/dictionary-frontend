@@ -12,11 +12,13 @@ const SearchBox = ({ onSearch }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSearch(word);
+        if (word) { // Check if there is a word to search
+            onSearch(word);
+        }
     };
 
     return (
-        <div className="search-box-container"> 
+        <div className="search-box-container">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -25,7 +27,13 @@ const SearchBox = ({ onSearch }) => {
                     onChange={handleInputChange}
                     className="search-input"
                 />
-                <button type="submit" className="search-button">Search</button> 
+                <button 
+                    type="submit" 
+                    className="search-button"
+                    disabled={!word}
+                >
+                    Search
+                </button>
             </form>
         </div>
     );
