@@ -36,3 +36,10 @@
 .search-box-container button:hover {
     background-color: #0056b3; 
 }
+
+
+@media (max-width: 768px) {
+    .search-box-container form {
+        width: 80%; 
+    }
+}
