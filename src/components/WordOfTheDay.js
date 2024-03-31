@@ -3,6 +3,8 @@ import { getWordOfTheDay } from '../api/tools';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './../css/WordOfTheDay.css';
+import { Hearts } from 'react-loader-spinner'
+import { FallingLines } from 'react-loader-spinner';
 
 const WordOfTheDay = () => {
     const [wordData, setWordData] = useState(null);
@@ -49,7 +51,17 @@ const WordOfTheDay = () => {
                     )}
                 </>
             ) : (
-                <p>Loading...</p>
+ <div style={{ display: 'flex', justifyContent: 'center' }}>
+<Hearts
+  height="80"
+  width="80"
+  color="#007bff"
+  ariaLabel="hearts-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true} />
+  </div>
+
             )}
         </div>
     );
