@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const domain = 'https://aziye.esube.com.et/';
+const domain = 'https://aziye.esube.com.et';
 
 export const getEntries = async (word) => {
     try {
